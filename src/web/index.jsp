@@ -45,7 +45,7 @@
 
 <div id="app" class="container">
 
-    <el-card style="margin: 100px; padding: 20px 250px 20px 200px; border-">
+    <el-card style="margin: 100px; padding: 20px 250px 20px 200px; border-radius: 5px">
 
         <el-form :model="form" label-width="120px">
             <el-form-item label="学号/教师号">
@@ -53,6 +53,12 @@
             </el-form-item>
             <el-form-item label="密码">
                 <el-input type="password" v-model="form.pwd"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-checkbox v-model="form.teacher" label="管理"></el-checkbox>
+            </el-form-item>
+            <el-form-item>
+                <el-button @click="formSubmit()">hallo</el-button>
             </el-form-item>
         </el-form>
 
@@ -66,10 +72,35 @@
         data: {
             form: {
                 account: '',
-                pwd: ''
+                pwd: '',
+                teacher: ''
             },
         },
-        methods: {},
+        methods: {
+            formSubmit: function () {
+                var data = this.form;
+                var status = "";
+                var message = "";
+
+                $.ajax({
+                    type: "POST",
+                    url: "/src/Login",
+                    async: false,//取消异步请求
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        var json = JSON.parse(data);
+                        status = json.status;
+                        message = json.message;
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+
+                this.$message(message);
+            }
+        },
     })
 </script>
 

@@ -8,6 +8,8 @@
           <element id="module-output" name="src" />
         </element>
       </element>
+      <element id="library" level="project" name="gson-2.8.0" />
+      <element id="library" level="project" name="mysql-connector-java-8.0.27" />
     </root>
   </artifact>
 </component>
