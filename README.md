@@ -84,3 +84,6 @@ public static void main(String[] args) throws IOException {
 }
 ```
 
+
+
+### [URLConnection类，HttpURLConnection类的使用和总结](https://blog.csdn.net/laiyaxing/article/details/51585755)
