@@ -98,6 +98,11 @@
                     }
                 });
 
+                if (status === 'success') {
+                    if (this.form.teacher === true) {
+                        window.location.href = 'teacher';
+                    }
+                }
                 this.$message(message);
             }
         },
