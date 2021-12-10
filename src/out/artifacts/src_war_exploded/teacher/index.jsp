@@ -74,7 +74,22 @@
         },
         methods: {
             addStudent: function () {
-                console.log("add");
+                var data = this.studentForm;
+                $.ajax({
+                    type: "POST",
+                    url: "/src/AddStudent",
+                    async: false,//取消异步请求
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        // var json = JSON.parse(data);
+                        // status = json.status;
+                        // message = json.message;
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
             }
         }
     })
