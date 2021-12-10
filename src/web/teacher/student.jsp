@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<el-card shadow="hover" style="margin: 20px; " align="center">
+<el-card shadow="hover" style="margin: 20px; border-radius: 10px" align="center">
     <el-form :inline="true" :model="studentForm" class="demo-form-inline" style="margin-bottom: 0">
         <el-form-item label="学生姓名" style="margin-bottom: 0">
             <el-input v-model="studentForm.name" placeholder=""></el-input>
