@@ -58,7 +58,7 @@
                 <el-checkbox v-model="form.teacher" label="管理"></el-checkbox>
             </el-form-item>
             <el-form-item>
-                <el-button @click="formSubmit()">hallo</el-button>
+                <el-button @click="formSubmit()">登录</el-button>
             </el-form-item>
         </el-form>
 
