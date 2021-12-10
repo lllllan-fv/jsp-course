@@ -68,9 +68,18 @@
                 {prop: 'profession', label: '专业'},
                 {prop: 'contact', label: '联系方式'},
             ],
-            studentTable: [
-                {id: 'S2021001', name: '张三', college: '国服', profession: '软工', contact: ''},
+            studentTable: [],
+            courseForm: {name: '', semester: '2021-2022-1', number: ''},
+            courseCol: [
+                {prop: 'id', label: '课程代码'},
+                {prop: 'id', label: '课程名称'},
+                {prop: 'id', label: '开设学期'},
+                {prop: 'id', label: '人数限制'},
+                {prop: 'id', label: '课程简介'},
+                {prop: 'id', label: '适用专业'},
+                {prop: 'id', label: '选课资格'},
             ],
+            courseTable: [],
         },
         methods: {
             selectStudent: function () {
@@ -120,6 +129,29 @@
                 this.$message(message);
 
                 this.selectStudent();
+            },
+            addCourse: function () {
+                var data = this.courseForm;
+                var status = '';
+                var message = '';
+
+                $.ajax({
+                    type: "POST",
+                    url: "/src/AddCourse",
+                    async: false,//取消异步请求
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        var json = JSON.parse(data);
+                        status = json.status;
+                        message = json.message;
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+                this.$message(message);
+
             }
         },
         beforeMount: function () {
