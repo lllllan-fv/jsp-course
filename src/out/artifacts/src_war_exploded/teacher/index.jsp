@@ -80,6 +80,10 @@
                 {prop: 'qualifications', label: '选课资格'},
             ],
             courseTable: [],
+            studyCol: [
+                {prop: 'id', label: '学号'},
+            ],
+            studyTable: [],
         },
         methods: {
             selectStudent: function () {
@@ -175,7 +179,7 @@
                     }
                 });
                 this.$message(message);
-
+                this.selectCourse();
             }
         },
         beforeMount: function () {
