@@ -99,8 +99,10 @@
                 });
 
                 if (status === 'success') {
-                    if (this.form.teacher === true) {
+                    if (this.form.teacher === true && this.form.account.indexOf('T') === 0) {
                         window.location.href = 'teacher';
+                    } else {
+                        window.location.href = 'student';
                     }
                 }
                 this.$message(message);
