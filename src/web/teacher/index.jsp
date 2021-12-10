@@ -71,13 +71,13 @@
             studentTable: [],
             courseForm: {name: '', semester: '2021-2022-1', number: ''},
             courseCol: [
-                {prop: 'id', label: '课程代码'},
-                {prop: 'id', label: '课程名称'},
-                {prop: 'id', label: '开设学期'},
-                {prop: 'id', label: '人数限制'},
-                {prop: 'id', label: '课程简介'},
-                {prop: 'id', label: '适用专业'},
-                {prop: 'id', label: '选课资格'},
+                {prop: 'code', label: '课程代码'},
+                {prop: 'name', label: '课程名称'},
+                {prop: 'semester', label: '开设学期'},
+                {prop: 'number', label: '人数限制'},
+                {prop: 'summary', label: '课程简介'},
+                {prop: 'profession', label: '适用专业'},
+                {prop: 'qualifications', label: '选课资格'},
             ],
             courseTable: [],
         },
@@ -130,6 +130,30 @@
 
                 this.selectStudent();
             },
+            selectCourse: function () {
+                var course = [];
+                var status = '';
+                var message = '';
+
+                $.ajax({
+                    type: "POST",
+                    url: "/src/SelectCourse",
+                    async: false,//取消异步请求
+                    data: {},
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        course = json.code[0];
+                        status = json.status;
+                        message = json.message;
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+                this.courseTable = course;
+                console.log(this.courseTable);
+            },
             addCourse: function () {
                 var data = this.courseForm;
                 var status = '';
@@ -156,6 +180,7 @@
         },
         beforeMount: function () {
             this.selectStudent();
+            this.selectCourse();
         }
     })
 </script>
