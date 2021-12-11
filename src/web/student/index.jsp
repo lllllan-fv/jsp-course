@@ -71,7 +71,31 @@
         },
         methods: {
             handleClick: function (row) {
-                console.log(row);
+                var student = this.info.name;
+                var course = row.name;
+                var status = '';
+                var message = '';
+
+                $.ajax({
+                    type: "POST",
+                    url: "/src/AddStudy",
+                    async: false,//取消异步请求
+                    data: {
+                        student: student,
+                        course: course,
+                    },
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        status = json.status;
+                        message = json.message;
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+                this.$message(message);
+                this.selectCourse();
             },
             selectInfo: function () {
                 var account = sessionStorage.getItem("account");
