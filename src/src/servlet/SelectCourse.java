@@ -35,7 +35,7 @@ public class SelectCourse extends HttpServlet {
             set.add(ha.get("course"));
         }
 
-        sql = "select course, count(*) from study group by course";
+        sql = "select course, count(*) from study where finish>-1 group by course";
         ArrayList<Map<String, String>> count = dbConnection.queryForList(sql);
         Map<String, Integer> num = new HashMap<>();
         for (Map<String, String> map : count) {

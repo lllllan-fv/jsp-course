@@ -81,7 +81,8 @@
             ],
             courseTable: [],
             studyCol: [
-                {prop: 'id', label: '学号'},
+                {prop: 'course', label: '课程'},
+                {prop: 'student', label: '学生'},
             ],
             studyTable: [],
         },
@@ -180,11 +181,30 @@
                 });
                 this.$message(message);
                 this.selectCourse();
-            }
+            },
+            selectStudy: function () {
+                var table = [];
+                $.ajax({
+                    type: "POST",
+                    url: "/src/SelectStudy",
+                    async: false,//取消异步请求
+                    data: {},
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        table = json.code;
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+                this.studyTable = table;
+            },
         },
         beforeMount: function () {
             this.selectStudent();
             this.selectCourse();
+            this.selectStudy();
         }
     })
 </script>
