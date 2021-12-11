@@ -99,6 +99,7 @@
                 });
 
                 if (status === 'success') {
+                    sessionStorage.setItem("account", data.account);
                     if (this.form.teacher === true && this.form.account.indexOf('T') === 0) {
                         window.location.href = 'teacher';
                     } else {

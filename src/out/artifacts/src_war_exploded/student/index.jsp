@@ -43,5 +43,54 @@
 </head>
 <body>
 
+<div id="app" class="container">
+    <el-tabs type="border-card" style="margin-top: 100px; border-radius: 5px">
+        <el-tab-pane label="个人信息">
+            <jsp:include page="info.jsp"></jsp:include>
+        </el-tab-pane>
+        <el-tab-pane label="进行选课">
+            <jsp:include page="course.jsp"></jsp:include>
+        </el-tab-pane>
+    </el-tabs>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            info: {},
+        },
+        methods: {
+            selectInfo: function () {
+                var account = sessionStorage.getItem("account");
+                console.log(account);
+
+                var info = {};
+                $.ajax({
+                    type: "POST",
+                    url: "/src/SelectInfo",
+                    async: false,//取消异步请求
+                    data: {
+                        account: account
+                    },
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        info = json.code[0][0];
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+
+                this.info = info;
+            }
+        },
+        beforeMount: function () {
+            this.selectInfo();
+        }
+    })
+</script>
+
 </body>
 </html>
