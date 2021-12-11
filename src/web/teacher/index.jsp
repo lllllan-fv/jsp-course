@@ -74,7 +74,7 @@
                 {prop: 'code', label: '课程代码'},
                 {prop: 'name', label: '课程名称'},
                 {prop: 'semester', label: '开设学期'},
-                {prop: 'number', label: '人数限制'},
+                {prop: 'number', label: '课程余量'},
                 {prop: 'summary', label: '课程简介'},
                 {prop: 'profession', label: '适用专业'},
                 {prop: 'qualifications', label: '选课资格'},

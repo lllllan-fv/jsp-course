@@ -59,8 +59,20 @@
         el: '#app',
         data: {
             info: {},
+            courseCol: [
+                {prop: 'code', label: '课程代码'},
+                {prop: 'name', label: '课程名称'},
+                {prop: 'semester', label: '开设学期'},
+                {prop: 'number', label: '课程余量'},
+                {prop: 'summary', label: '课程简介'},
+                {prop: 'profession', label: '适用专业'},
+            ],
+            courseTable: [],
         },
         methods: {
+            handleClick: function (row) {
+                console.log(row);
+            },
             selectInfo: function () {
                 var account = sessionStorage.getItem("account");
                 console.log(account);
@@ -84,10 +96,34 @@
                 });
 
                 this.info = info;
+            },
+            selectCourse: function () {
+                var student = this.info.name;
+                var course = [];
+
+                $.ajax({
+                    type: "POST",
+                    url: "/src/SelectCourse",
+                    async: false,//取消异步请求
+                    data: {
+                        student: student
+                    },
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        course = json.code[0];
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+                this.courseTable = course;
+                console.log(this.courseTable);
             }
         },
         beforeMount: function () {
             this.selectInfo();
+            this.selectCourse();
         }
     })
 </script>
