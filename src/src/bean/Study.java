@@ -3,10 +3,12 @@ package bean;
 public class Study {
     private String student;
     private String course;
+    private String left;
 
-    public Study(String student, String course) {
+    public Study(String student, String course, String left) {
         this.student = student;
         this.course = course;
+        this.left = left;
     }
 
     public String getStudent() {
@@ -23,5 +25,13 @@ public class Study {
 
     public void setCourse(String course) {
         this.course = course;
+    }
+
+    public String getLeft() {
+        return left;
+    }
+
+    public void setLeft(String left) {
+        this.left = left;
     }
 }

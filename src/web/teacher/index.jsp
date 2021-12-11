@@ -82,11 +82,32 @@
             courseTable: [],
             studyCol: [
                 {prop: 'course', label: '课程'},
+                {prop: 'left', label: '课程余量'},
                 {prop: 'student', label: '学生'},
             ],
             studyTable: [],
         },
         methods: {
+            handleClick: function (row) {
+                var student = row.student;
+                var course = row.course;
+                $.ajax({
+                    type: "POST",
+                    url: "/src/AgreeStudy",
+                    async: false,//取消异步请求
+                    data: {
+                        student: student,
+                        course: course
+                    },
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+            },
             selectStudent: function () {
                 var students = [];
                 var status = '';
