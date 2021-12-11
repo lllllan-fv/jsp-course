@@ -107,6 +107,8 @@
                         console.log(msg);
                     }
                 });
+
+                this.selectStudy();
             },
             selectStudent: function () {
                 var students = [];

@@ -27,7 +27,7 @@
                      label="操作"
                      width="100">
         <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" type="text">确认选课</el-button>
+            <el-button @click="handleClick(scope.row)" type="text">通过选课</el-button>
         </template>
     </el-table-column>
 </el-table>
