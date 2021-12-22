@@ -23,15 +23,15 @@
             <el-table-column :prop="item.prop"
                              :label="item.label"
                              align="center"
-                             width="300">
+                             width="400">
             </el-table-column>
         </template>
-        <el-table-column align="center"
-                         label="操作"
-                         width="300">
-            <template slot-scope="scope">
-                <el-button @click="deleteStudy(scope.row)" type="text">退选</el-button>
-            </template>
-        </el-table-column>
+        <%--        <el-table-column align="center"--%>
+        <%--                         label="操作"--%>
+        <%--                         width="300">--%>
+        <%--            <template slot-scope="scope">--%>
+        <%--                <el-button @click="deleteStudy(scope.row)" type="text">退选</el-button>--%>
+        <%--            </template>--%>
+        <%--        </el-table-column>--%>
     </el-table>
 </el-card>
