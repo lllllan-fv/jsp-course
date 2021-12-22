@@ -66,6 +66,11 @@
         el: '#app',
         data: {
             info: {},
+            studyCol: [
+                {prop: 'course', label: '课程名称'},
+                {prop: 'finish', label: '课程状态'},
+            ],
+            studyTable: {},
             courseCol: [
                 {prop: 'code', label: '课程代码'},
                 {prop: 'name', label: '课程名称'},
@@ -77,6 +82,9 @@
             courseTable: [],
         },
         methods: {
+            deleteStudy: function (row) {
+                console.log('del');
+            },
             handleClick: function (row) {
                 var student = this.info.name;
                 var course = row.name;
@@ -150,11 +158,46 @@
                 });
                 this.courseTable = course;
                 console.log(this.courseTable);
+            },
+            selectStudentStudy: function () {
+                var student = this.info.name;
+
+                var study = [];
+                $.ajax({
+                    type: "POST",
+                    url: "/src/SelectStudentStudy",
+                    async: false,//取消异步请求
+                    data: {
+                        student: student
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        study = json.code;
+                    },
+                    error: function (msg) {
+                        console.log(msg);
+                    }
+                });
+
+                study.forEach(function (value) {
+                    console.log(value.finish);
+                    if (value.finish === '-1') {
+                        value.finish = '待筛选';
+                    } else if (value.finish === '0') {
+                        value.finish = '已选上';
+                    } else {
+                        value.finish = '已完成';
+                    }
+                });
+                this.studyTable = study;
             }
         },
         beforeMount: function () {
             this.selectInfo();
             this.selectCourse();
+            this.selectStudentStudy();
         }
     })
 </script>

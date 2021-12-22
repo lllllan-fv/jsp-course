@@ -7,16 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="723ae6b5-52e2-412b-8131-9f5e3a932f6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../socket/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/out/artifacts/src_war_exploded/WEB-INF/classes/servlet/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/out/artifacts/src_war_exploded/WEB-INF/classes/servlet/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/out/artifacts/src_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/out/artifacts/src_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/src/servlet/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/src/servlet/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/web/WEB-INF/classes/servlet/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/WEB-INF/classes/servlet/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../src/web/student/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/student/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/web/teacher/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/teacher/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/web/student/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/student/info.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../socket/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../socket/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
