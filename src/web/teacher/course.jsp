@@ -16,9 +16,14 @@
         <el-form-item label="开设学期" style="margin-bottom: 0">
             <el-input v-model="courseForm.semester"></el-input>
         </el-form-item>
+        <br>
         <el-form-item label="人数上限" style="margin-bottom: 0">
             <el-input v-model="courseForm.number" placeholder=""></el-input>
         </el-form-item>
+        <el-form-item label="适用院校" style="margin-bottom: 0">
+            <el-input v-model="courseForm.profession" placeholder=""></el-input>
+        </el-form-item>
+        <br>
         <el-form-item style="margin-bottom: 0">
             <el-button type="primary" @click="addCourse">添加课程</el-button>
         </el-form-item>

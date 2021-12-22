@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba1d6d5f-ecf1-42e0-8ac6-cea2623be96a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../src/web/student/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/student/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/web/student/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/student/info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/web/teacher/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/teacher/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/web/teacher/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/web/teacher/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/.idea/workspace.xml" afterDir="false" />
     </list>

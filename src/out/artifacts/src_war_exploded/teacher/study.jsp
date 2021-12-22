@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
-<el-card shadow="hover" style="margin: 20px; border-radius: 10px" align="center">
-    <el-button type="primary" @click=" ">开放选课</el-button>
-    <el-button type="warning" @click=" ">关闭选课</el-button>
-</el-card>
+<%--<el-card shadow="hover" style="margin: 20px; border-radius: 10px" align="center">--%>
+<%--    <el-button type="primary" @click=" ">开放选课</el-button>--%>
+<%--    <el-button type="warning" @click=" ">关闭选课</el-button>--%>
+<%--</el-card>--%>
 
 <el-table :data="studyTable"
           style="width: 100%"
