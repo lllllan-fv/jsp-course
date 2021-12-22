@@ -48,7 +48,7 @@
     <el-card style="margin: 100px; padding: 20px 250px 20px 200px; border-radius: 5px">
 
         <el-form :model="form" label-width="120px">
-            <el-form-item label="学号/教师号">
+            <el-form-item label="学号/工号">
                 <el-input v-model="form.account"></el-input>
             </el-form-item>
             <el-form-item label="密码">
@@ -100,11 +100,23 @@
 
                 if (status === 'success') {
                     sessionStorage.setItem("account", data.account);
+
+                    var tar = "student";
                     if (this.form.teacher === true && this.form.account.indexOf('T') === 0) {
-                        window.location.href = 'teacher';
+                        tar = "teacher";
+
+                        var item = sessionStorage.getItem("teacher");
+                        if (item == null) item = 0;
+                        item = parseInt(item) + 1;
+                        sessionStorage.setItem("teacher", item);
                     } else {
-                        window.location.href = 'student';
+                        var item = sessionStorage.getItem("student");
+                        if (item == null) item = 0;
+                        item = parseInt(item) + 1;
+                        sessionStorage.setItem("student", item);
                     }
+
+                    window.location.href = tar;
                 }
                 this.$message(message);
             }

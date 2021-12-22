@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -21,9 +23,10 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
 
+        boolean flag = false;
+
         String account = request.getParameter("account");
         String pwd = request.getParameter("pwd");
-        String teacher = request.getParameter("teacher");
 
         PrintWriter printWriter = response.getWriter();
         DBConnection dbConnection = new DBConnection();
@@ -32,12 +35,19 @@ public class Login extends HttpServlet {
         String sql = "select * from account where (id=\"" + account + "\" and password=\"" + pwd + "\")";
         ArrayList<Map<String, String>> maps = dbConnection.queryForList(sql);
 
-
         String json;
         if (maps.isEmpty()) {
             json = new Gson().toJson(new Message("error", "账号或密码错误", null));
         } else {
             json = new Gson().toJson(new Message("success", "登录成功", null));
+
+            if (flag) {
+                Socket socket = new Socket("127.0.0.1", 8848);
+                OutputStream outputStream = socket.getOutputStream();
+                outputStream.write("hello,server!".getBytes());
+                outputStream.close();
+                socket.close();
+            }
         }
         printWriter.println(json);
 

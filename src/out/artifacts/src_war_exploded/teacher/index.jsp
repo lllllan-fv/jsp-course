@@ -42,6 +42,13 @@
 </head>
 <body>
 
+<%
+    Integer teacher = (Integer) session.getAttribute("teacher");
+    if (teacher == null) teacher = 0;
+    teacher++;
+    session.setAttribute("teacher", teacher);
+%>
+
 <div id="app" class="container">
     <el-tabs type="border-card" style="margin-top: 100px; border-radius: 5px">
         <el-tab-pane label="学生管理">

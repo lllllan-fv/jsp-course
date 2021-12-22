@@ -43,6 +43,13 @@
 </head>
 <body>
 
+<%
+    Integer student = (Integer) session.getAttribute("student");
+    if (student == null) student = 0;
+    student++;
+    session.setAttribute("student", student);
+%>
+
 <div id="app" class="container">
     <el-tabs type="border-card" style="margin-top: 100px; border-radius: 5px">
         <el-tab-pane label="个人信息">
