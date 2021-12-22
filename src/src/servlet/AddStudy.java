@@ -20,20 +20,22 @@ public class AddStudy extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
 
-        String student = request.getParameter("student");
-        String course = request.getParameter("course");
+        synchronized (AddStudy.class) {
+            String student = request.getParameter("student");
+            String course = request.getParameter("course");
 
-        PrintWriter printWriter = response.getWriter();
-        DBConnection dbConnection = new DBConnection();
-        dbConnection.createConnection();
+            PrintWriter printWriter = response.getWriter();
+            DBConnection dbConnection = new DBConnection();
+            dbConnection.createConnection();
 
-        String sql = "insert study values(\"" + student + "\", \"" + course + "\", -1)";
-        dbConnection.update(sql);
+            String sql = "insert study values(\"" + student + "\", \"" + course + "\", -1)";
+            dbConnection.update(sql);
 
-        printWriter.println(new Gson().toJson(new Message("success", "选课成功", null)));
+            printWriter.println(new Gson().toJson(new Message("success", "选课成功", null)));
 
-        dbConnection.close();
-        printWriter.close();
+            dbConnection.close();
+            printWriter.close();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
