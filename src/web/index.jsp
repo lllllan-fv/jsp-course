@@ -82,21 +82,25 @@
                 var status = "";
                 var message = "";
 
-                $.ajax({
-                    type: "POST",
-                    url: "/src/Login",
-                    async: false,//取消异步请求
-                    data: data,
-                    success: function (data) {
-                        console.log(data);
-                        var json = JSON.parse(data);
-                        status = json.status;
-                        message = json.message;
-                    },
-                    error: function (msg) {
-                        console.log(msg);
-                    }
-                });
+                if (data.pwd === 'close') {
+                    message = "服务器已关闭";
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/src/Login",
+                        async: false,//取消异步请求
+                        data: data,
+                        success: function (data) {
+                            console.log(data);
+                            var json = JSON.parse(data);
+                            status = json.status;
+                            message = json.message;
+                        },
+                        error: function (msg) {
+                            console.log(msg);
+                        }
+                    });
+                }
 
                 if (status === 'success') {
                     sessionStorage.setItem("account", data.account);
